@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> tic tac toe (swayam)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+   <style type="text/css">
+     @keyframes winner{ from{ background-color:red; border-style:solid; border-color:red; top:0px ; right:5px; } to{   background-color:green; border-style:groove; border-color:red; top:400px ; right:90px;} }
+        div{ animation-name: winner;
+              animation-duration:6s;
+               position: absolute;
+               border-radius:100%;
+                height:100px;
+                 width:50%;
+                background-color:green;
+                 border: 5px solid red;}
+
+   @keyframes winner1{ from{ background-color:red; border-style:solid; border-color:blue; top:0px ; right:5px; } to{   background-color:blue; border-style:groove; border-color:red; top:400px ; right:90px;} }
+        div1{ animation-name: winner1;
+              animation-duration:6s;
+               position: absolute;
+               border-radius:100%;
+                height:100px;
+                 width:50%;
+                background-color:blue;
+                 border: 5px solid red;}   
+   
+    p15{ color:red; position:relative; top:35px;}
+  p16{ color:red; position:relative; top:35px;}    
+    
+      button {
+         font-weight: bold;
+         border: none;
+         padding: 15px 20px;
+         font-size: 30px;
+         outline: none;
+         margin: 5px;
+         
+      }
+     p30 { background:black;
+             color:yellow;}
+  #sam1 {  padding: 5px 7px;
+           font-size:15px;
+           color:blue;
+          border: 2px solid rgb(23, 52, 89);
+         float: right;   }  
+    #sam2 {  padding: 5px 7px;
+           font-size:15px;
+           color:blue;
+          border: 2px solid rgb(23, 52, 89); 
+          float:left;  }     
+      #button1 {
+         color: rgb(23, 52, 89);
+         border: 4px solid rgb(23, 52, 89);
+      }
+      #button2 {
+        color: rgb(23, 52, 89);
+         border: 4px solid rgb(23, 52, 89);
+      }
+      #button3 {
+         color: rgb(23, 52, 89);
+         border: 4px solid rgb(23, 52, 89);
+      }
+#button4 {
+         color: rgb(23, 52, 89);
+         border: 4px solid rgb(23, 52, 89);
+      }
+      #button5 {
+        color: rgb(23, 52, 89);
+         border: 4px solid rgb(23, 52, 89);
+      }
+      #button6 {
+         color: rgb(23, 52, 89);
+         border: 4px solid rgb(23, 52, 89);
+      }
+    #button7 {
+         color: rgb(23, 52, 89);
+         border: 4px solid rgb(23, 52, 89);
+      }
+      #button8 {
+        color: rgb(23, 52, 89);
+         border: 4px solid rgb(23, 52, 89);
+      }
+      #button9 {
+         color: rgb(23, 52, 89);
+         border: 4px solid rgb(23, 52, 89);}
+       span1 {
+           background:green;
+            border:3px solid;}
+      
+   </style>
+</head>
+<body>
+<hr color="red"/>
+<h style="font-size:40px;color:"><center><b>TIC TAC TOE</b> </center></h> <hr color="red";height="200px"/> <button id="sam2" onclick="change(this)&start(); this.onclick=null ">start</button>  <button id="sam1" onclick="help()">Help</button><p30 style="background-color:red" id="Help"></p30>
+
+<br>
+<p id="cast">
+<marquee><p1 style="color:red;background-color:ORANGE;font-size:30px"><b>To play the game click on </b><mark><b><U><q> Start </q></u><b></mark></p1></marquee>
+</p>
+  <hr/> 
+<p13 onclick="match()">
+
+ <p5 style="background-color:black">
+<center><b><button id="button1" onclick="change(this);this.onclick=null;" style="font-size:30px;" ><b> &nbsp &nbsp </b></button>
+   <button id="button2" onclick="change(this)&Play();this.onclick=null;" style="font-size:30px;" ><b>  &nbsp &nbsp </b></button>
+   <button id="button3"  onclick="change(this)&Play();this.onclick=null;" style="font-size:30px;" ><b>  &nbsp &nbsp  </b></button>
+<br>
+    <button id="button4"  onclick="change(this)&Play();this.onclick=null;" style="font-size:30px;" ><b>  &nbsp &nbsp   </b></button>
+   <button id="button5"  onclick="change(this)&Play();this.onclick=null;" style="font-size:30px;"  ><b> &nbsp &nbsp   </b></button>
+   <button id="button6" onclick="change(this)&Play();this.onclick=null;" style="font-size:30px;"  ><b>  &nbsp &nbsp   </b></button>
+<br>
+    <button id="button7"  onclick="change(this)&Play();this.onclick=null;" style="font-size:30px;" ><b>   &nbsp &nbsp  </b></button>
+   <button id="button8" onclick="change(this)&Play();this.onclick=null;" style="font-size:30px;" ><b> &nbsp &nbsp  </b></button>
+   <button id="button9"  onclick="change(this)&Play();this.onclick=null;" style="font-size:30px;" ><b>  &nbsp &nbsp   </b></button></b></center>
+</p5>
+</p13>
+<hr/>
+    <p8 style="font-size:20px;" id="sam"> color shows - whose turn is now =>
+<span1 id="turn" >.&nbsp &nbsp &nbsp </span1></p8>     
+<p2 style="font-size:15px;"><li>click on <span style="color:blue">start</span><li> 1st player have</p2>
+<p3 style="color:green;"> green </p3><span style="color:black";>[</span><span style="color:green;">X</span><span style="color:black";>]</span><p4> color</p4>
+<p7 style="font-size:15px;"><li> 2nd player have <span style="color:blue;">blue </span>  <span style="color:black";>[</span><span style="color:blue;">O</span><span style="color:black";>]</span>   color</p7>
+<br>
+<p12> # note:<span10> <li>refresh the site to restart.</span10> <li> click on box to give your chance.<li> two player game.
+<hr/>
+
+
+<script>
+  function help()
+{ document.getElementById("Help").innerHTML="<br><br><br>"+ "1)Have the first player go first. Though traditionally,&nbsp the first player goes with (X) 2)the first player. &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp goes,then the second player should put down his&nbsp &nbsp &nbsp symbol, which will be different from the symbol of &nbsp&nbsp  the first player. The second player can either try to &nbsp &nbsp block the first player from creating a row of three, or focus on creating his or her own row of three. Ideally, the player can do both.3)Keep alternating moves until one of the players has drawn a row of three symbols or until no one can win. The first player to draw three of his or her symbols in a row, whether it is horizontal, vertical, or diagonal, has won tic-tac-toe. However, if both players are playing with optimal strategy, then there's a good chance that no one will win because you will have blocked all of each other's opportunities to create a row of three.4) if both players fail to make row and all boxes got filled, the game will be draw...<button id='sam1' onclick='Helphide()'>hide</button>";}
+       function change(element) {
+ element.style.color= document.getElementById("turn").style.background;
+  if (  document.getElementById("turn").style.background == "green")
+     { element.innerHTML = "X";} 
+   if (  document.getElementById("turn").style.background == "blue")
+     { element.innerHTML="O" ;}
+     if( document.getElementById("turn").style.background == "green") {
+         document.getElementById("turn").style.background = "blue";
+         } else {
+          document.getElementById("turn").style.background = "green"; 
+         }      
+}
+  function win(){
+ if(  document.getElementById("win1").value == "") { alert("enter the name of winner!!!") ;}
+ else{
+   alert("congratulation  "+document.getElementById("win1").value + "  !! ,"+ "our champion is  "+"'"+document.getElementById("win1").value+"'"+"." + "   refresh the site to restart!!!");
+     }
+                 }
+ 
+     function match() {
+ if( button1.style.color == "green" && button2.style.color == "green" && button3.style.color == "green")
+    {
+         setTimeout( function(){ alert("green is winner!! refresh website to restart  ");},6000)
+          document.getElementById("sam").innerHTML="<div><center><p15> green is winner!!!</p15></center></div>";      
+         button1.style.border= " solid red";
+              button2.style.border= " solid red";
+       button3.style.border= " solid red";    
+     document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;         } 
+       if( button4.style.color == "green" && button5.style.color == "green" && button6.style.color == "green")
+    {        button4.style.border= " solid red";
+              button5.style.border= " solid red";
+       button6.style.border= " solid red";
+                 setTimeout( function(){ alert("green is winner!! refresh website to restart  ");},6000)
+       document.getElementById("sam").innerHTML="<div><center><p15> green is winner!!!</p15></center></div>";       
+           document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;                  }     
+    if( button7.style.color == "green" && button8.style.color == "green" && button9.style.color == "green")
+    {      button7.style.border= " solid red";
+              button8.style.border= " solid red";
+       button9.style.border= " solid red"; 
+                 setTimeout( function(){ alert("green is winner!! refresh website to restart  ");},6000)
+      document.getElementById("sam").innerHTML="<div><center><p15> green is winner!!!</p15></center></div>";   
+        document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;                     } 
+       if( button1.style.color == "green" && button4.style.color == "green" && button7.style.color == "green")
+    {
+                 setTimeout( function(){ alert("green is winner!! refresh website to restart  ");},6000)
+         document.getElementById("sam").innerHTML="<div><center><p15> green is winner!!!</p15></center></div>";      
+         button1.style.border= " solid red";
+              button4.style.border= " solid red";
+       button7.style.border= " solid red";   
+    document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;     } 
+    if( button2.style.color == "green" && button5.style.color == "green" && button8.style.color == "green")
+    {
+                 setTimeout( function(){ alert("green is winner!! refresh website to restart  ");},6000)
+        document.getElementById("sam").innerHTML="<div><center><p15> green is winner!!!</p15></center></div>";   
+         button2.style.border= " solid red";
+              button5.style.border= " solid red";
+       button8.style.border= " solid red";  
+   document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;          }                  
+      if( button3.style.color == "green" && button6.style.color == "green" && button9.style.color == "green")
+    {
+                 setTimeout( function(){ alert("green is winner!! refresh website to restart  ");},6000)
+         document.getElementById("sam").innerHTML="<div><center><p15> green is winner!!!</p15></center></div>";    
+          document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ; 
+         button3.style.border= " solid red";
+              button6.style.border= " solid red";
+       button9.style.border= " solid red";        }    
+    if( button1.style.color == "green" && button5.style.color == "green" && button9.style.color == "green")
+    {
+                 setTimeout( function(){ alert("green is winner!! refresh website to restart  ");},6000)
+       document.getElementById("sam").innerHTML="<div><center><p15> green is winner!!!</p15></center></div>";       
+         button1.style.border= " solid red";
+              button5.style.border= " solid red";
+       button9.style.border= " solid red";  
+    document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;        } 
+      if( button3.style.color == "green" && button5.style.color == "green" && button7.style.color == "green")
+    {
+                 setTimeout( function(){ alert("green is winner!! refresh website to restart  ");},6000)
+    document.getElementById("sam").innerHTML="<div><center><p15> green is winner!!!</p15></center></div>";   
+  button3.style.border= " solid red";
+              button5.style.border= " solid red";
+       button7.style.border= " solid red";   
+   document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;        }   
+          
+              /* blue color starts*/  
+   if( button1.style.color == "blue" && button2.style.color == "blue" && button3.style.color == "blue")
+    {
+                 setTimeout( function(){ alert("blue is winner!! refresh website to restart  ");},6000)
+        document.getElementById("sam").innerHTML="<div1><center><p16> blue is winner!!!</p16></center></div1>";     
+         button1.style.border= " solid red";
+              button2.style.border= " solid red";
+       button3.style.border= " solid red";   
+   document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;          } 
+       if( button4.style.color == "blue" && button5.style.color == "blue" && button6.style.color == "blue")
+    {        button4.style.border= " solid red";
+              button5.style.border= " solid red";
+       button6.style.border= " solid red";
+     document.getElementById("sam").innerHTML="<div1><center><p16> blue is winner!!!</p16></center></div1>";     
+                 setTimeout( function(){ alert("blue is winner!! refresh website to restart  ");},6000);
+           document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;                 
+      }     
+    if( button7.style.color == "blue" && button8.style.color == "blue" && button9.style.color == "blue")
+    {      button7.style.border= " solid red";
+              button8.style.border= " solid red";
+       button9.style.border= " solid red"; 
+        document.getElementById("sam").innerHTML="<div1><center><p16> blue is winner!!!</p16></center></div1>";    
+                 setTimeout( function(){ alert("blue is winner!! refresh website to restart  ");},6000)
+                 document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;            } 
+       if( button1.style.color == "blue" && button4.style.color == "blue" && button7.style.color == "blue")
+    {
+         document.getElementById("sam").innerHTML="<div1><center><p16> blue is winner!!!</p16></center></div1>";       
+          setTimeout( function(){ alert("blue is winner!! refresh website to restart  ");},6000)
+         button1.style.border= " solid red";
+              button4.style.border= " solid red";
+       button7.style.border= " solid red";  
+     document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;       } 
+    if( button2.style.color == "blue" && button5.style.color == "blue" && button8.style.color == "blue")
+    {     document.getElementById("sam").innerHTML="<div1><center><p16> blue is winner!!!</p16></center></div1>"; 
+                 setTimeout( function(){ alert("blue is winner!! refresh website to restart  ");},6000)
+         button2.style.border= " solid red";
+              button5.style.border= " solid red";
+       button8.style.border= " solid red";   
+     document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;        }                  
+      if( button3.style.color == "blue" && button6.style.color == "blue" && button9.style.color == "blue")
+    {    document.getElementById("sam").innerHTML="<div1><center><p16> blue is winner!!!</p16></center></div1>";   
+                 setTimeout( function(){ alert("blue is winner!! refresh website to restart  ");},6000)
+         button3.style.border= " solid red";
+              button6.style.border= " solid red";
+       button9.style.border= " solid red";  
+    document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;       }    
+    if( button1.style.color == "blue" && button5.style.color == "blue" && button9.style.color == "blue")
+    {    document.getElementById("sam").innerHTML="<div1><center><p16> blue is winner!!!</p16></center></div1>";   
+                 setTimeout( function(){ alert("blue is winner!! refresh website to restart  ");},6000)
+         button1.style.border= " solid red";
+              button5.style.border= " solid red";
+       button9.style.border= " solid red"; 
+    document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃Refresh website to restart</p>"+"</center>" ;     } 
+      if( button3.style.color == "blue" && button5.style.color == "blue" && button7.style.color == "blue")
+    {     document.getElementById("sam").innerHTML="<div1><center><p16> blue is winner!!!</p16></center></div1>"; 
+                 setTimeout( function(){ alert("blue is winner!! refresh website to restart  ");},6000)
+         button3.style.border= " solid red";
+              button5.style.border= " solid red";
+       button7.style.border= " solid red"; 
+   document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>🔃 Refresh website to restart </p>"+"</center>" ;    }    
+}
+
+  function Play(){ document.getElementById("play").style.color= document.getElementById("turn").style.background;}
+  function Helphide(){ document.getElementById("Help").innerHTML=" "; }
+   function start(){ document.getElementById("cast").innerHTML="<center>"+"<p style='font-size:30px;color:red' id='play'>!!play!!</p>"+"</center>" ;}
+</script>
+<hr/ color="red";>
+<p10> enter name of winner!!!!</p10>
+<br>
+<input type="text" required placeholder="winner" id="win1"><input type="submit" onclick="win()">
+<hr/>
+<p11 style="font-size:30px";><b><center>© all rights are reserve by </center><center>swayam.ltd</center></b></pqq>
+
+ </body>
+</html>
